@@ -19,7 +19,11 @@ multipartyMiddleware = multiparty(),
 FileUploadController = require('./db/FileUploadController');
 
 mongoose.Promise = require('bluebird');
-mongoose.connect(config.database);
+
+mongoose.connect(config.database,{
+  useMongoClient: true,
+});
+
 mongoose.connection.on('connected',function(){
   console.log('connected on '+ config.database);
 });
