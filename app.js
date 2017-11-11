@@ -7,7 +7,7 @@ var slug = require ('mongoose-slug-generator');
 var mongoose = require('mongoose');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-var config = require('./config/database');
+var config = require('./db/database');
 const users = require('./routes/users'); 
 
 
@@ -16,7 +16,7 @@ multiparty = require('connect-multiparty'),
 multipartyMiddleware = multiparty(), 
 
 // Requires controller
-FileUploadController = require('./config/FileUploadController');
+FileUploadController = require('./db/FileUploadController');
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(config.database);
@@ -70,7 +70,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
+require('./db/passport')(passport);
 
 //users route group (from const users = require('./routes/users');)
 app.use('/api/users',users);
