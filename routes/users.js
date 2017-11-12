@@ -31,10 +31,10 @@ let newUser = User({
 
 router.post('/login',(req,res,next)=>{
   //res.send('Authentication route');
-  const username = req.body.numbers;
+  const numbers = req.body.numbers;
   const password = req.body.password;
 
-  User.getUserByUsername(username,(err,user)=>{
+  User.getUserByUsername(numbers,(err,user)=>{
     //if(err) throw err;
     if(!user){
       res.json({success:false,message:'User Not Found'});
