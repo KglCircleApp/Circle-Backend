@@ -474,7 +474,7 @@ app.post('/api/uploads', multipartyMiddleware, function(req,res){
   fs.readFile(req.files.file.path, function (err,data) {
 
     // set the correct path for the file not the temporary one from the API:
-    var newpath = "public/uploads/images/" + req.files.file.name;
+    var newpath = "public/uploads/profiles/" + req.files.file.name;
  // copy the data from the req.files.file.path and paste it to file.path
     fs.writeFile(newpath, data,function (err) {
       if (err) {

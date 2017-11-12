@@ -29,12 +29,12 @@ let newUser = User({
   });
 });
 
-router.post('/auth',(req,res,next)=>{
+router.post('/login',(req,res,next)=>{
   //res.send('Authentication route');
-  const username = req.body.username;
+  const numbers = req.body.numbers;
   const password = req.body.password;
 
-  User.getUserByUsername(username,(err,user)=>{
+  User.getUserByUsername(numbers,(err,user)=>{
     //if(err) throw err;
     if(!user){
       res.json({success:false,message:'User Not Found'});
@@ -57,7 +57,9 @@ router.post('/auth',(req,res,next)=>{
             email:user.email,
             user:user.username,
             materials:user.materials,
-            avatar:user.avatar
+            avatar:user.avatar,
+            description:user.description,
+            numbers:user.numbers
           }
 
         });
