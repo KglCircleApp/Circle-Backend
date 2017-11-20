@@ -17,7 +17,8 @@ let newUser = User({
   password: req.body.password,
   description: req.body.description,
   numbers:req.body.numbers,
-  access_code:req.body.access_code
+  access_code:req.body.access_code,
+  projects:req.body.projects
 });
 
   User.addUser(newUser,(err,user)=>{

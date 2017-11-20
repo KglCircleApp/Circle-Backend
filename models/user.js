@@ -31,6 +31,10 @@ const UserSchema = mongoose.Schema({
     type:Array,
     required:false
   },
+  projects:{
+    type:Array,
+    required:false
+  },
   description:{
     type:String,
     required:false
